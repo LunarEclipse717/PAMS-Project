@@ -1,17 +1,20 @@
+import java.time.LocalTime;
 
 public class PatientAppointment {
-    int patientID;
-    String patientName;
-    String appointmentTime;
 
-    public PatientAppointment(int patientID, String patientName, String appointmentTime) {
-        this.patientID = patientID;
-        this.patientName = patientName;
-        this.appointmentTime = appointmentTime;
+    private String name;
+    private LocalTime time;
+
+    public PatientAppointment(String name, LocalTime time) {
+        this.name = name;
+        this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return patientID + ", " + patientName + ", " + appointmentTime;
+    public String getName() {
+        return name;
+    }
+
+    public LocalTime getTime() {
+        return time;
     }
 }
