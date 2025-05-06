@@ -1,25 +1,16 @@
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Scanner;
+import java.time.LocalTime;
 
 public class Main {
+
     public static void main(String[] args) {
         AppointmentBST bst = new AppointmentBST();
-        try (BufferedReader br = new BufferedReader(new FileReader("appointments.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(", ");
-                int id = Integer.parseInt(parts[0]);
-                String name = parts[1];
-                String time = parts[2];
-                bst.addAppointment(new PatientAppointment(id, name, time));
-            }
-        } catch (Exception e) {
-            System.out.println("Error reading file.");
-        }
 
-        System.out.println("Appointments in order:");
+        bst.addAppointment(new PatientAppointment("Alice", LocalTime.of(9, 0)));
+        bst.addAppointment(new PatientAppointment("Bob", LocalTime.of(10, 0)));
+        bst.addAppointment(new PatientAppointment("Charlie", LocalTime.of(8, 30)));
+        bst.addAppointment(new PatientAppointment("Diana", LocalTime.of(10, 30)));
+
+        System.out.println("Appointments in order of time:");
         bst.inOrderTraversal(bst.getRoot());
     }
 }
